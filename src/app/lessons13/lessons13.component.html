@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="block1">
+        <form name="f1">
+            <p>Login</p>
+            <input type="text"  [(ngModel)]="login" name="login" placeholder="Enter Login">
+            <p>Password</p>
+            <input type="password" [(ngModel)]="password" name="password"  placeholder="Enter password">
+            <p>Email</p>
+            <input  type="text" [(ngModel)]="email" name="email" placeholder="Enter email">
+            <div>
+                <input *ngIf="!isEdit" (click)="Add_Btn()" class="Add_btn" type="button" value="Add user">
+                <input *ngIf="isEdit" (click)="Edit_Btn()" class="Edit_btn" type="button" value="Edit user">
+            </div>
+        </form>
+    </div>
+    <div class="block2">
+
+        <table >
+            <tbody class="tbody_1">
+                <tr>
+                    <td>#</td>
+                    <td>Login</td>
+                    <td>Password</td>
+                    <td>Email</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+                 <tr *ngFor="let name of arrInform let i = index">
+                    <td >{{i + 1}}</td> 
+                    <td>{{ name[0] }}</td>  
+                    <td>{{ name[1] }}</td>
+                    <td>{{ name[2] }}</td>
+                    <td><button (click)="Edit_User(i)" class="Edit" value="Edit" type="button">Edit</button></td>
+                    <td><button (click)="Delete_User(i)" class="Delete" value="Delete" type="button">Delete</button></td> 
+                </tr>  
+            </tbody>
+        </table>
+        
+    </div>
+  </div>
+  
+
